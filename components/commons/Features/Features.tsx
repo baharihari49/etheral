@@ -1,8 +1,7 @@
 'use client'
 import { motion } from "framer-motion";
-import SecuritySharpIcon from '@mui/icons-material/SecuritySharp';
-import AccountBalanceWalletIcon from '@mui/icons-material/AccountBalanceWallet';
-import EmojiObjectsIcon from '@mui/icons-material/EmojiObjects';
+import { useEffect, useState } from "react";
+import { useInView } from "react-intersection-observer";
 import Image from "next/image";
 
 export const Features = () => {
@@ -49,29 +48,29 @@ export const Features = () => {
     ];
 
     const containerVariants = {
-        hidden: { opacity: 0, y: 50 },
+        hidden: { opacity: 0 },
         visible: {
             opacity: 1,
-            y: 0,
             transition: {
-                duration: 0.6,
-                when: "beforeChildren",
-                staggerChildren: 0.2,
+                staggerChildren: 0.3,
             },
         },
     };
 
     const itemVariants = {
-        hidden: { opacity: 0, scale: 0.8 },
-        visible: { opacity: 1, scale: 1, transition: { duration: 0.4 } },
+        hidden: { opacity: 0, y: 50 },
+        visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
     };
 
+    const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.2 });
+
     return (
-        <section className="container mx-auto py-16">
+        <section className="py-12">
             <motion.div
+                ref={ref}
                 className="grid grid-cols-1 md:grid-cols-3 gap-8 px-4"
                 initial="hidden"
-                animate="visible"
+                animate={inView ? "visible" : "hidden"}
                 variants={containerVariants}
             >
                 {features.map((feature) => (
@@ -82,8 +81,8 @@ export const Features = () => {
                         whileHover={{ scale: 1.05 }}
                     >
                         <div className="mb-4">{feature.icon}</div>
-                        <h3 className="text-6xl font-medium mb-4">{feature.title}</h3>
-                        <p className="text-gray-600 text-lg">{feature.description}</p>
+                        <h3 className="text-4xl lg:text-6xl font-medium mb-4">{feature.title}</h3>
+                        <p className="text-gray-600 text-base">{feature.description}</p>
                     </motion.div>
                 ))}
             </motion.div>

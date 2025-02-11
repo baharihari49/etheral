@@ -1,11 +1,15 @@
 'use client'
 import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 import { Footer } from "../footer/Footer";
-import { Button } from "@/components/ui/button"
+import { Button } from "@/components/ui/button";
 
 export const CallToAction = () => {
+    const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.6 });
+
     return (
         <section
+            ref={ref}
             className="h-max-xl pt-32 pb-5 text-white"
             style={{
                 backgroundImage: "url('https://res.cloudinary.com/du0tz73ma/image/upload/v1738675679/white-paper-pyramid-with-word-pyramid-it_y5kxkt.jpg')",
@@ -15,21 +19,37 @@ export const CallToAction = () => {
         >
             <div className="container mx-auto px-8">
                 {/* Supporting Content */}
-                <h2 className="text-8xl font-medium mb-4 max-w-3xl">
-                    Ready to explore the future?
-                </h2>
-                <p className="text-lg mb-8">
-                    Join Ethereal today and discover the next level of decentralized art and finance.
-                </p>
-                {/* CTA Button */}
-                <Button
-                    size={'lg'}
-                    // whileHover={{ scale: 1.1 }}
-                    // whileTap={{ scale: 0.95 }}
-                    className=" bg-white text-black font-semibold shadow-md hover:shadow-lg transition duration-300"
+                <motion.h2
+                    className="text-5xl lg:text-8xl font-medium mb-4 lg:max-w-3xl"
+                    initial={{ opacity: 0, y: 50 }}
+                    animate={inView ? { opacity: 1, y: 0 } : {}}
+                    transition={{ duration: 1, ease: "easeOut" }}
                 >
-                    Get Started
-                </Button>
+                    Ready to explore the future?
+                </motion.h2>
+                
+                <motion.p
+                    className="text-base lg:text-lg mb-8"
+                    initial={{ opacity: 0, y: 50 }}
+                    animate={inView ? { opacity: 1, y: 0 } : {}}
+                    transition={{ duration: 1, ease: "easeOut", delay: 0.3 }}
+                >
+                    Join Ethereal today and discover the next level of decentralized art and finance.
+                </motion.p>
+                
+                {/* CTA Button */}
+                <motion.div
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={inView ? { opacity: 1, scale: 1 } : {}}
+                    transition={{ duration: 0.5, ease: "backOut", delay: 0.6 }}
+                >
+                    <Button
+                        size={'lg'}
+                        className=" bg-white py-6 px-8 text-sm text-black font-semibold shadow-md hover:shadow-lg transition duration-300"
+                    >
+                        Get Started
+                    </Button>
+                </motion.div>
             </div>
             <footer className="px-5 mt-20">
                 <Footer />
