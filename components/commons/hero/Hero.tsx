@@ -2,7 +2,6 @@
 
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
-import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 

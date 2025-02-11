@@ -62,4 +62,4 @@ Or follow [Next.js deployment guide](https://nextjs.org/docs/app/building-your-a
 - [Wagmi Docs](https://wagmi.sh)
 
 ---
-Built with ❤️ by Your Bahari.
+Built with ❤️ by Bahari.

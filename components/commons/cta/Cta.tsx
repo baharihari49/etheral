@@ -2,7 +2,6 @@
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { Footer } from "../footer/Footer";
-import { Button } from "@/components/ui/button";
 
 export const CallToAction = () => {
     const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.6 });

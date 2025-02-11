@@ -3,7 +3,6 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { ConnectButton } from '@rainbow-me/rainbowkit';
-import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 
 interface NavbarProps {
@@ -13,7 +12,7 @@ interface NavbarProps {
     onScrollToHome: () => void;
 }
 
-export const Navbar: React.FC<NavbarProps> = ({ onScrollToDiscover, onScrollToFeatures, onScrollToCTA, onScrollToHome }) => {
+export const Navbar: React.FC<NavbarProps> = ({ onScrollToFeatures, onScrollToCTA, onScrollToHome }) => {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
 
