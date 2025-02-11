@@ -53,4 +53,4 @@ jobs:
         run: |
           sshpass -p '530EYuBe0rS7KY5@' ssh -o StrictHostKeyChecking=no root@147.93.30.80 '
             pm2 restart 1
-          ,
+          '
