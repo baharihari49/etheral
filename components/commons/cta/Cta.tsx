@@ -43,12 +43,11 @@ export const CallToAction = () => {
                     animate={inView ? { opacity: 1, scale: 1 } : {}}
                     transition={{ duration: 0.5, ease: "backOut", delay: 0.6 }}
                 >
-                    <Button
-                        size={'lg'}
-                        className=" bg-white py-6 px-8 text-sm text-black font-semibold shadow-md hover:shadow-lg transition duration-300"
+                    <button
+                        className="w-max py-1.5 bg-gray-200 rounded-lg px-4 text-lg font-semibold shadow-md hover:shadow-lg transition duration-300 text-black"
                     >
                         Get Started
-                    </Button>
+                    </button>
                 </motion.div>
             </div>
             <footer className="px-5 mt-20">

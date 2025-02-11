@@ -4,7 +4,7 @@ import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
-import { Features } from "../Features/Features";
+import { ConnectButton } from "@rainbow-me/rainbowkit";
 
 export const Hero = () => {
     const titleRef = useRef(null);
@@ -51,7 +51,7 @@ export const Hero = () => {
             <section className="min-h-[50rem]">
                 {/* Background Video */}
                 <video
-                    className="absolute inset-0 w-full max-h-screen min-h-[50rem] object-cover z-0"
+                    className="absolute inset-0 w-full h-screen min-h-[50rem] object-cover z-0"
                     src="https://res.cloudinary.com/du0tz73ma/video/upload/v1738675808/6916195_Motion_Graphics_Motion_Graphic_3840x2160_fkh0kd.mp4"
                     autoPlay
                     loop
@@ -94,36 +94,30 @@ export const Hero = () => {
                         </h1>
 
                         {/* Tagline */}
-                        <p ref={taglineRef} className="text-4xl lg:text-8xl max-w-5xl mb-6">
+                        <p ref={taglineRef} className="text-4xl md:text-6xl lg:text-8xl max-w-5xl mb-6">
                             Discover the future of decentralized art and finance
                         </p>
 
                         {/* About/Info Section */}
-                        <p ref={infoRef} className="text-base max-w-xl mx-auto mb-8">
+                        <p ref={infoRef} className="text-lg max-w-xl mx-auto mb-8">
                             Ethereal is where digital art meets blockchain innovation, enabling artists and collectors to connect in a transparent and secure ecosystem. Join us to explore limitless possibilities powered by Web3.
                         </p>
 
                         {/* Call-to-Action Buttons */}
                         <div ref={buttonRef} className="grid grid-cols-1 md:grid-cols-2 gap-4 justify-items-center w-max mx-auto">
-                            <Button className="w-max py-6 px-8 text-sm font-semibold shadow-md hover:shadow-lg transition duration-300">
-                                Connect Wallet
-                            </Button>
-                            <Button
-                                variant={"secondary"}
-                                className="w-max py-6 px-8 text-sm font-semibold shadow-md hover:shadow-lg transition duration-300"
+                            <div className="w-max transition duration-300">
+                                <ConnectButton label="Connect To Wallet" accountStatus={"address"} />
+                            </div>
+                            <button
+                                className="w-max py-1.5 bg-gray-200 rounded-lg px-4 text-lg font-semibold shadow-md hover:shadow-lg transition duration-300"
                                 onClick={handleScrollToDiscover}
                             >
                                 Scroll to discover
-                            </Button>
+                            </button>
                         </div>
                     </div>
                 </div>
             </section>
-
-            {/* Discover Section */}
-            <div ref={discoverRef} className="container mx-auto py-16">
-               
-            </div>
         </>
     );
 };

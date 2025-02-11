@@ -2,8 +2,8 @@ import "./footer.css";
 
 export const Footer = () => {
     return (
-        <footer className="border text-white pb-8 pt-16 footer">
-            <div className="container mx-auto px-4">
+        <footer className="border text-white pb-8 pt-8 footer">
+            <div className="container mx-auto px-8">
                 {/* Grid Layout */}
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                     {/* Contact Information */}
