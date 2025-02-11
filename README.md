@@ -1,4 +1,4 @@
-# Etheral - Next.js Web3 App
+# Ethereal - Next.js Web3 App
 
 This is a **Next.js** project that integrates **RainbowKit** and **Wagmi** for seamless Web3 wallet connections.
 

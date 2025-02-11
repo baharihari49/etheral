@@ -1,90 +1,123 @@
-'use client'
+"use client";
 import { motion } from "framer-motion";
-import { useInView } from "react-intersection-observer";
 import Image from "next/image";
 
 export const Features = () => {
-    const features = [
-        {
-            id: 1,
-            icon: (
-                <Image
-                    src="https://res.cloudinary.com/du0tz73ma/image/upload/v1738685872/bitcoin_1246580_umjaub.png"
-                    alt="Decentralized Platform"
-                    width={100}
-                    height={100}
-                />
-            ),
-            title: "Decentralized Platform",
-            description: "Empowering users with secure, transparent transactions through blockchain technology.",
-        },
-        {
-            id: 2,
-            icon: (
-               <Image
-                    src={"https://res.cloudinary.com/du0tz73ma/image/upload/v1738686093/crypto-wallet_16182059_a0v5jl.png"}
-                    alt="Seamless Wallet Integration"
-                    width={100}
-                    height={100}
-               />
-            ),
-            title: "Seamless Wallet Integration",
-            description: "Connect your wallet effortlessly and manage assets with ease.",
-        },
-        {
-            id: 3,
-            icon: (
-                <Image
-                    src={"https://res.cloudinary.com/du0tz73ma/image/upload/v1738686256/moon_16346898_bo05uk.png"}
-                    alt="Creative Freedom"
-                    width={100}
-                    height={100}
-               />
-            ),
-            title: "Creative Freedom",
-            description: "A space where artists can innovate and monetize their work securely.",
-        },
-    ];
+  const features = [
+    {
+      id: 1,
+      icon: (
+        <Image
+          src="https://res.cloudinary.com/dnsekavtx/image/upload/v1739295785/acdb9795-da9e-403a-a234-9a7701fb5893.png"
+          alt="Decentralized Platform"
+          width={50}
+          height={50}
+          className="mx-auto mt-4 ml-5 drop-shadow-lg"
+        />
+      ),
+      title: "Decentralized & Secure",
+      description:
+        "Experience true ownership and secure transactions powered by blockchain. No middlemen, no limits—just freedom.",
+    },
+    {
+      id: 2,
+      icon: (
+        <Image
+          src="https://res.cloudinary.com/dnsekavtx/image/upload/v1739295806/d0e429a8-4559-497c-af02-db32376f47eb.png"
+          alt="Seamless Wallet Integration"
+          width={50}
+          height={50}
+          className="mx-auto mt-4 ml-4 drop-shadow-lg"
+        />
+      ),
+      title: "Seamless Wallet Integration",
+      description:
+        "Connect your wallet in seconds and take full control of your digital assets with ease and security.",
+    },
+    {
+      id: 3,
+      icon: (
+        <Image
+          src="https://res.cloudinary.com/dnsekavtx/image/upload/v1739295815/b8945a5a-63a8-4b84-b9dd-20731a6e8df0.png"
+          alt="Creative Freedom"
+          width={50}
+          height={50}
+          className="mx-auto mt-4 ml-4 drop-shadow-lg"
+        />
+      ),
+      title: "Creative Freedom",
+      description:
+        "Monetize your art effortlessly and engage with collectors worldwide in an open and limitless digital space.",
+    },
+    {
+      id: 4,
+      icon: (
+        <Image
+          src="https://res.cloudinary.com/dnsekavtx/image/upload/v1739295817/a8dde835-49b9-4093-8353-c0b80e75e6a1.png"
+          alt="Smart Contract Automation"
+          width={50}
+          height={50}
+          className="mx-auto mt-4 ml-4 drop-shadow-lg"
+        />
+      ),
+      title: "Smart Contract Automation",
+      description:
+        "Automate royalty payments and ensure trustless transactions with blockchain-powered smart contracts.",
+    },
+  ];
 
-    const containerVariants = {
-        hidden: { opacity: 0 },
-        visible: {
-            opacity: 1,
-            transition: {
-                staggerChildren: 0.3,
-            },
-        },
-    };
+  return (
+    <section className="py-16 bg-gray-900 text-white">
+      <div className="max-w-6xl mx-auto px-6 text-center">
+        {/* Header */}
+        <p className="text-blue-400 text-lg font-semibold tracking-wide uppercase">
+          Why Choose Us
+        </p>
+        <h2 className="text-6xl font-extrabold mb-12">
+          Why Choose Our{" "}
+          <span className="text-blue-500">Ethereal Platform</span>
+        </h2>
 
-    const itemVariants = {
-        hidden: { opacity: 0, y: 50 },
-        visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
-    };
-
-    const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.2 });
-
-    return (
-        <section className="py-12">
+        {/* Feature Cards */}
+        <motion.div
+          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-8"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={{
+            hidden: { opacity: 0, y: 50 },
+            visible: { opacity: 1, y: 0, transition: { staggerChildren: 0.2 } },
+          }}
+        >
+          {features.map((feature) => (
             <motion.div
-                ref={ref}
-                className="grid grid-cols-1 md:grid-cols-3 gap-8 px-4"
-                initial="hidden"
-                animate={inView ? "visible" : "hidden"}
-                variants={containerVariants}
+              key={feature.id}
+              className="bg-gray-900  p-8 rounded-2xl shadow-lg transition duration-300 hover:bg-gray-800 hover:scale-105 text-center flex flex-col items-center"
+              style={{ border: "1px solid #1e2731" }}
+              variants={{
+                hidden: { opacity: 0, y: 20 },
+                visible: { opacity: 1, y: 0 },
+              }}
             >
-                {features.map((feature) => (
-                    <motion.div
-                        key={feature.id}
-                        className="bg-white p-6 rounded-lg shadow-lg text-start border"
-                        variants={itemVariants}
-                        whileHover={{ scale: 1.05 }}
-                    >
-                        <div className="mb-4">{feature.icon}</div>
-                        <h3 className="text-4xl lg:text-6xl font-medium mb-4">{feature.title}</h3>
-                        <p className="text-gray-600 text-base">{feature.description}</p>
-                    </motion.div>
-                ))}
+              <div
+                className="mb-5"
+                style={{
+                  width: "90px",
+                  height: "90px",
+                  background: "rgba(255, 255, 255, 0.07)",
+                  border: "4px solid rgba(255, 255, 255, 0.06)",
+                  borderRadius: "50%",
+                  transition: ".3s ease-in-out",
+                }}
+              >
+                {feature.icon}
+              </div>
+              <h2 className="text-2xl font-semibold mb-3">{feature.title}</h2>
+              <p className="text-gray-300 text-base">{feature.description}</p>
             </motion.div>
-        </section>
-    );
+          ))}
+        </motion.div>
+      </div>
+    </section>
+  );
 };
