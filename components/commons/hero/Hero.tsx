@@ -2,7 +2,6 @@
 
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
-import Image from "next/image";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 import { motion } from "framer-motion";
 
@@ -11,7 +10,6 @@ export const Hero = () => {
   const taglineRef = useRef(null);
   const infoRef = useRef(null);
   const buttonRef = useRef(null);
-  const discoverRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     gsap.fromTo(
