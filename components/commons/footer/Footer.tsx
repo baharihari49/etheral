@@ -2,41 +2,73 @@ import "./footer.css";
 
 export const Footer = () => {
     return (
-        <footer className="border text-white pb-8 pt-8 footer">
-            <div className="container mx-auto px-8">
-                {/* Grid Layout */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    {/* Contact Information */}
-                    <div>
-                        <h4 className="text-lg font-bold mb-4">Contact Us</h4>
-                        <p>Email: <a href="mailto:contact@ethereal.com" className="">contact@ethereal.com</a></p>
-                        <p>Follow us:</p>
-                        <div className="flex space-x-4 mt-2">
-                            <a href="https://twitter.com/ethereal" target="_blank" rel="noopener noreferrer" className=" hover:underline">Twitter</a>
-                            <a href="https://facebook.com/ethereal" target="_blank" rel="noopener noreferrer" className=" hover:underline">Facebook</a>
-                            <a href="https://instagram.com/ethereal" target="_blank" rel="noopener noreferrer" className=" hover:underline">Instagram</a>
-                        </div>
-                    </div>
-
-                    {/* Navigation Links */}
-                    <div>
-                        <h4 className="text-lg font-bold mb-4">Quick Links</h4>
-                        <ul className="space-y-2">
-                            <li><a href="#hero" className="hover:underline">Home</a></li>
-                            <li><a href="#features" className="hover:underline">Features</a></li>
-                            <li><a href="#cta" className="hover:underline">Get Started</a></li>
-                            <li><a href="#contact" className="hover:underline">Contact Us</a></li>
-                        </ul>
-                    </div>
-
-                    {/* Legal Information */}
-                    <div>
-                        <h4 className="text-lg font-bold mb-4">Legal</h4>
-                        <p>© 2025 Ethereal. All rights reserved.</p>
-                        <p>Terms of Service</p>
-                        <p>Privacy Policy</p>
+        <footer className="bg-gray-900 text-gray-300 w-full py-10">
+            <div className="container mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
+                {/* Contact Info */}
+                <div>
+                    <h3 className="text-lg font-semibold mb-2">Contact Us</h3>
+                    <p className="text-sm">Email: contact@ethereal.com</p>
+                    <div className="mt-2 flex justify-center md:justify-start gap-4">
+                        <a href="#" className="hover:text-blue-400 transition">
+                            Twitter
+                        </a>
+                        <a href="#" className="hover:text-blue-400 transition">
+                            Facebook
+                        </a>
+                        <a href="#" className="hover:text-blue-400 transition">
+                            Instagram
+                        </a>
                     </div>
                 </div>
+
+                {/* Quick Links */}
+                <div>
+                    <h3 className="text-lg font-semibold mb-2">Quick Links</h3>
+                    <ul className="space-y-2 text-sm">
+                        <li>
+                            <a href="#" className="hover:text-blue-400 transition">
+                                Home
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" className="hover:text-blue-400 transition">
+                                Features
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" className="hover:text-blue-400 transition">
+                                Get Started
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" className="hover:text-blue-400 transition">
+                                Contact Us
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                {/* Legal */}
+                <div>
+                    <h3 className="text-lg font-semibold mb-2">Legal</h3>
+                    <ul className="space-y-2 text-sm">
+                        <li>
+                            <a href="#" className="hover:text-blue-400 transition">
+                                Terms of Service
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" className="hover:text-blue-400 transition">
+                                Privacy Policy
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            {/* Footer Copyright */}
+            <div className="border-t border-gray-700 mt-8 py-4 text-center text-sm">
+                © 2025 Ethereal. All rights reserved.
             </div>
         </footer>
     );
