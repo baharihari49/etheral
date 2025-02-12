@@ -13,11 +13,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Step 1: Checkout the code
       - name: 🚚 Get latest code
         uses: actions/checkout@v4
 
-      # Step 2: Install dependencies with
       - name: Install Dependencies
         run: |
           npm install 
@@ -26,31 +24,27 @@ jobs:
         run: |
           npm run build
 
-      # Step 3: Transfer the build folder to server
       - name: Deploy to Server
         run: |
-          sshpass -p '530EYuBe0rS7KY5@' rsync -avz --delete -e "ssh -o StrictHostKeyChecking=no" \
+          sshpass -p "${{ secrets.SSH_PASSWORD }}" rsync -avz --delete -e "ssh -o StrictHostKeyChecking=no" \
             ./ \
-            root@147.93.30.80:/var/www/etheral/
+            ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/var/www/etheral/
 
-      # Step 4: Set correct permissions (optional)
       - name: Set Permissions
         run: |
-          sshpass -p '530EYuBe0rS7KY5@' ssh -o StrictHostKeyChecking=no root@147.93.30.80 '
+          sshpass -p "${{ secrets.SSH_PASSWORD }}" ssh -o StrictHostKeyChecking=no ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} '
             chmod -R 755 /var/www/etheral &&
             chown -R www-data:www-data /var/www/etheral
           '
 
-      # Step 5: Restart Server (if necessary)
       - name: Restart Server (optional)
         run: |
-          sshpass -p '530EYuBe0rS7KY5@' ssh -o StrictHostKeyChecking=no root@147.93.30.80 '
+          sshpass -p "${{ secrets.SSH_PASSWORD }}" ssh -o StrictHostKeyChecking=no ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} '
             systemctl restart nginx
           '
 
-      # Step 6: Restart PM2
       - name: Restart PM2
         run: |
-          sshpass -p '530EYuBe0rS7KY5@' ssh -o StrictHostKeyChecking=no root@147.93.30.80 '
+          sshpass -p "${{ secrets.SSH_PASSWORD }}" ssh -o StrictHostKeyChecking=no ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} '
             pm2 restart 1
           '
