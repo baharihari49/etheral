@@ -18,7 +18,7 @@ export const CallToAction = () => {
             }}
         >
             {/* Content Container */}
-            <div className="container mx-auto px-8 flex-grow text-center flex flex-col justify-center items-center">
+            <div className="container mx-auto px-8 py-10 flex-grow text-center flex flex-col justify-center items-center">
                 {/* Call-to-Action Title */}
                 <motion.h2
                     className="text-5xl md:text-7xl font-extrabold tracking-wide leading-tight drop-shadow-lg"

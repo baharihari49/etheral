@@ -7,16 +7,10 @@ import { Features } from "@/components/commons/Features/Features";
 import { CallToAction } from "@/components/commons/cta/Cta";
 
 export default function Home() {
-  const discoverRef = useRef<HTMLDivElement>(null);
   const featuresRef = useRef<HTMLDivElement>(null);
   const ctaRef = useRef<HTMLDivElement>(null);
   const homeRef = useRef<HTMLDivElement>(null);
 
-  const handleScrollToDiscover = () => {
-    if (discoverRef.current) {
-      discoverRef.current.scrollIntoView({ behavior: "smooth" });
-    }
-  };
 
   const handleScrollToFeatures = () => {
     if (featuresRef.current) {
@@ -39,13 +33,14 @@ export default function Home() {
   return (
     <>
       <Navbar
-        onScrollToDiscover={handleScrollToDiscover}
         onScrollToFeatures={handleScrollToFeatures}
         onScrollToCTA={handleScrollToCTA}
         onScrollToHome={handleScrollToHome}
       />
       <div ref={homeRef}>
-        <Hero />
+        <Hero 
+          onScrollToFeatures={handleScrollToFeatures}
+        />
       </div>
 
       {/* Gunakan div dengan ref agar scroll bekerja */}

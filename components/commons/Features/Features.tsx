@@ -70,10 +70,10 @@ export const Features = () => {
     <section className="py-16 bg-gray-900 text-white">
       <div className="max-w-6xl mx-auto px-6 text-center">
         {/* Header */}
-        <p className="text-blue-400 text-lg font-semibold tracking-wide uppercase">
+        <p className="text-blue-400 text-lg font-semibold tracking-wide uppercase mb-3">
           Why Choose Us
         </p>
-        <h2 className="text-6xl font-extrabold mb-12">
+        <h2 className="text-4xl md:text-6xl font-extrabold mb-12">
           Why Choose Our{" "}
           <span className="text-blue-500">Ethereal Platform</span>
         </h2>

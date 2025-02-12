@@ -6,7 +6,13 @@ import Image from "next/image";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 import { motion } from "framer-motion";
 
-export const Hero = () => {
+interface NavbarProps {
+  onScrollToFeatures: () => void;
+}
+
+export const Hero:React.FC<NavbarProps> = ({
+  onScrollToFeatures,
+}) => {
   const titleRef = useRef(null);
   const taglineRef = useRef(null);
   const infoRef = useRef(null);
@@ -39,12 +45,6 @@ export const Hero = () => {
       { opacity: 1, scale: 1, duration: 1, ease: "easeInOut", delay: 1.2 }
     );
   }, []);
-
-  const handleScrollToDiscover = () => {
-    if (discoverRef.current) {
-      discoverRef.current.scrollIntoView({ behavior: "smooth" });
-    }
-  };
 
   return (
     <>
@@ -87,7 +87,7 @@ export const Hero = () => {
               powered by Web3.
             </motion.p>
 
-            <div className="mt-6 flex space-x-4">
+            <div className="mt-6 grid grid-cols-1 justify-items-center gap-4 md:gap-4 md:grid-cols-2">
               <motion.div
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
@@ -101,8 +101,8 @@ export const Hero = () => {
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 1, ease: "easeInOut", delay: 1.5 }}
-                className="py-1 px-6 bg-gray-200 rounded-md text-lg font-semibold shadow-lg hover:bg-gray-300 transition duration-300"
-                onClick={handleScrollToDiscover}
+                className="py-2 px-3 bg-gray-200 rounded-md text-md font-semibold shadow-lg hover:bg-gray-300 transition duration-300"
+                onClick={onScrollToFeatures}
               >
                 Scroll to discover
               </motion.button>
