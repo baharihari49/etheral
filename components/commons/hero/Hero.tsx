@@ -73,7 +73,7 @@ export const Hero: React.FC<NavbarProps> = ({
         <div className="container-fluid mx-auto flex flex-col items-center justify-center h-screen relative px-4">
           {/* Background Overlay */}
           <div className="absolute inset-0 bg-black/50"></div>
-         
+
           {/* Content Section */}
           <div className="relative z-10 flex flex-col items-center justify-center text-center h-full px-4">
             {/* **Tetap Menggunakan Judul Asli** */}
@@ -104,16 +104,25 @@ export const Hero: React.FC<NavbarProps> = ({
 
             {/* Call-to-Action Buttons */}
             <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4 justify-items-center">
-              <ConnectButton
-                label="Connect To Wallet"
-                accountStatus={"address"}
-              />
-              <button
-                className="py-2 px-4 bg-gray-200 rounded-md text-md font-semibold shadow-lg hover:bg-gray-300 transition duration-300"
+              <motion.div
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 1, ease: "easeInOut", delay: 1.2 }}
+              >
+                <ConnectButton label="Connect To Wallet" accountStatus={"address"} />
+              </motion.div>
+              <motion.button
+                ref={buttonRef}
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
+                transition={{ duration: 1, ease: "easeInOut", delay: 1.5 }}
+                className="py-2 px-4 bg-gray-200 rounded-lg text-md font-semibold shadow-lg hover:bg-gray-300 transition duration-300"
                 onClick={onScrollToFeatures}
               >
                 Scroll to discover
-              </button>
+              </motion.button>
             </div>
           </div>
         </div>
