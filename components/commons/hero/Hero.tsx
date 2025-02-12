@@ -70,7 +70,7 @@ export const Hero: React.FC<NavbarProps> = ({
           />
         </div>
 
-        <div className="container-fluid mx-auto flex flex-col items-center justify-center min-h-[50rem] relative px-4">
+        <div className="container-fluid mx-auto flex flex-col items-center justify-center min-h-[50rem] h-screen relative px-4">
           {/* Background Overlay */}
           <div className="absolute inset-0 bg-black/50"></div>
 
