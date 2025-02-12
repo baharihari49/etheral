@@ -17,7 +17,7 @@ export const CallToAction = () => {
       }}
     >
       {/* Content Container */}
-      <div className="container mx-auto px-8 flex-grow text-center flex flex-col justify-center items-center">
+      <div className="container mx-auto px-8 mt-5 flex-grow text-center flex flex-col justify-center items-center">
         {/* Call-to-Action Title */}
         <motion.h2
           className="text-5xl md:text-7xl font-extrabold tracking-wide leading-tight drop-shadow-lg"
@@ -44,11 +44,7 @@ export const CallToAction = () => {
           animate={inView ? { opacity: 1, scale: 1 } : {}}
           transition={{ duration: 0.5, ease: "backOut", delay: 0.6 }}
           className="mt-8"
-        >
-          <button className="px-6 py-3 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-600 transition duration-300">
-            Get Started
-          </button>
-        </motion.div>
+        ></motion.div>
       </div>
 
       {/* Footer Section (Sticky at Bottom) */}
